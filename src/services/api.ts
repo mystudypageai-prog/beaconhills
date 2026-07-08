@@ -172,7 +172,7 @@ export function clearToken(): void {
 // Identifies this frontend to the shared Laravel API so it knows which
 // database connection to use (mysql for Northbridge, client_mysql for
 // Altioda). See DetectTenantConnection middleware on the backend.
-const APP_IDENTIFIER = "beacon";
+const APP_IDENTIFIER = "northbridge";
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = getToken();
