@@ -160,14 +160,14 @@ export default function SupportPage() {
             </div>
             <div>
               <div className={styles.contactPlatform}>Instagram</div>
-              <div className={styles.contactHandle}>@North Bridgeofficial</div>
+              <div className={styles.contactHandle}>@Beacon Hillsofficial</div>
             </div>
           </div>
           <p className={styles.contactDesc}>
             Follow us for updates and DM us for quick support.
           </p>
           <a
-            href="https://instagram.com/North Bridgeofficial"
+            href="https://instagram.com/Beacon Hillsofficial"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.contactBtn}
@@ -215,7 +215,7 @@ export default function SupportPage() {
             <div>
               <div className={styles.contactPlatform}>Email Support</div>
               <div className={styles.contactHandle}>
-                support@North Bridge.io
+                support@Beacon Hills.io
               </div>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function SupportPage() {
             Send us an email and we'll respond within 24 hours.
           </p>
           <a
-            href="mailto:support@North Bridge.io"
+            href="mailto:support@Beacon Hills.io"
             className={styles.contactBtn}
             style={{
               background: "rgba(21,101,192,0.12)",

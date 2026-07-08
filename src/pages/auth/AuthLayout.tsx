@@ -32,7 +32,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
                 strokeLinecap="round"
               />
             </svg>
-            <span>North Bridge</span>
+            <span>Beacon Hills</span>
           </Link>
 
           <div className={styles.panelContent}>
@@ -73,7 +73,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
           </div>
 
           <div className={styles.panelFooter}>
-            <span>© 2025 North Bridge</span>
+            <span>© 2025 Beacon Hills</span>
           </div>
         </div>
       </div>

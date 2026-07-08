@@ -201,7 +201,7 @@ export default function FinalCTA() {
             starting today.
           </h2>
           <p className={styles.body}>
-            Open a North Bridge account in under 3 minutes. No credit check. No
+            Open a Beacon Hills account in under 3 minutes. No credit check. No
             minimum balance. No fees.
           </p>
           <div className={styles.ctaRow}>

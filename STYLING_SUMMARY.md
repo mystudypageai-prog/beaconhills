@@ -1,7 +1,7 @@
-# North Bridge Frontend v2 - Styling Architecture Summary
+# Beacon Hills Frontend v2 - Styling Architecture Summary
 
 **Analysis Date**: June 2, 2026  
-**Analysis Scope**: Complete styling audit of `c:\Projects\North Bridge\frontend v2`  
+**Analysis Scope**: Complete styling audit of `c:\Projects\Beacon Hills\frontend v2`  
 **Total CSS Module Files Found**: 43  
 **Total CSS Lines**: ~5,000+  
 **Project Framework**: React + TypeScript + Vite
@@ -487,7 +487,7 @@ A: Create `src/pages/PageName/PageName.module.css` following existing patterns
 
 ## 🎉 Conclusion
 
-The North Bridge Frontend v2 styling architecture is **well-structured, maintainable, and professional**. The team has established:
+The Beacon Hills Frontend v2 styling architecture is **well-structured, maintainable, and professional**. The team has established:
 
 - ✅ Clear design principles
 - ✅ Consistent patterns

@@ -3,8 +3,8 @@ import styles from "./FAQ.module.css";
 
 const FAQS = [
   {
-    q: "Is North Bridge Banking a real bank?",
-    a: "Yes. North Bridge Banking is a fully licensed and regulated financial institution. Your deposits are FDIC-insured up to $250,000 per depositor, per account category.",
+    q: "Is Beacon Hills Banking a real bank?",
+    a: "Yes. Beacon Hills Banking is a fully licensed and regulated financial institution. Your deposits are FDIC-insured up to $250,000 per depositor, per account category.",
   },
   {
     q: "Are there any monthly fees?",
@@ -15,11 +15,11 @@ const FAQS = [
     a: "Most ACH deposits are available within minutes. Wire transfers settle same-day. Withdrawals to linked bank accounts process within 1 business day. No withdrawal fees on standard transfers.",
   },
   {
-    q: "How does North Bridge make money?",
+    q: "How does Beacon Hills make money?",
     a: "We earn on interchange fees when you use your debit card, on interest from loans and institutional partners, and on optional premium features. We never sell your data.",
   },
   {
-    q: "Can I use North Bridge internationally?",
+    q: "Can I use Beacon Hills internationally?",
     a: "Yes. Our cards work in 190+ countries. International payments are processed in real time with mid-market exchange rates — no markup, no SWIFT delays.",
   },
 ];

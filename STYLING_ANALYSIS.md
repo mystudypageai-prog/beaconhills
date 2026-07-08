@@ -1,8 +1,8 @@
-# North Bridge Frontend - Complete Styling Architecture Analysis
+# Beacon Hills Frontend - Complete Styling Architecture Analysis
 
 ## Executive Summary
 
-This document provides a comprehensive analysis of the CSS styling architecture in the North Bridge frontend v2 project. The project uses **CSS Modules** for component-scoped styling with a global CSS file for shared design tokens.
+This document provides a comprehensive analysis of the CSS styling architecture in the Beacon Hills frontend v2 project. The project uses **CSS Modules** for component-scoped styling with a global CSS file for shared design tokens.
 
 ---
 
@@ -1142,4 +1142,4 @@ src/
 
 **Document Version**: 1.0  
 **Last Updated**: June 2, 2026  
-**Analysis Scope**: Complete North Bridge Frontend v2 Styling Architecture
+**Analysis Scope**: Complete Beacon Hills Frontend v2 Styling Architecture

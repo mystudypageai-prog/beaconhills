@@ -4,21 +4,21 @@ import styles from "./Testimonials.module.css";
 const QUOTES = [
   {
     quote:
-      "Switching to North Bridge cut our payroll processing time from two days to about four minutes. The API is clean, the support is real, and the rates are actually competitive.",
+      "Switching to Beacon Hills cut our payroll processing time from two days to about four minutes. The API is clean, the support is real, and the rates are actually competitive.",
     name: "Margaret Osei",
     role: "CEO, Osei Ventures",
     init: "MO",
   },
   {
     quote:
-      "I've used Wise, Revolut, and a handful of others. North Bridge is the only one where the savings rate is genuinely high and the international transfers just work — no delays, no excuses.",
+      "I've used Wise, Revolut, and a handful of others. Beacon Hills is the only one where the savings rate is genuinely high and the international transfers just work — no delays, no excuses.",
     name: "David Chen",
     role: "Software Engineer, independent",
     init: "DC",
   },
   {
     quote:
-      "As a freelancer billing clients in four currencies, I needed a bank that wouldn't eat my margins on FX. North Bridge is the first one that actually delivers on that promise.",
+      "As a freelancer billing clients in four currencies, I needed a bank that wouldn't eat my margins on FX. Beacon Hills is the first one that actually delivers on that promise.",
     name: "Fatima Al-Rashid",
     role: "Freelance product designer",
     init: "FA",

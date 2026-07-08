@@ -14,7 +14,7 @@ const STEPS = [
   {
     n: "3",
     title: "Start banking",
-    body: "Send, save, invest, and spend. Your North Bridge account works wherever your money needs to go.",
+    body: "Send, save, invest, and spend. Your Beacon Hills account works wherever your money needs to go.",
   },
 ];
 

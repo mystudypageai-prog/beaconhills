@@ -71,7 +71,7 @@ export default function Navbar() {
             </svg>
           </div>
           <div>
-            <div className={styles.logoName}>North Bridge</div>
+            <div className={styles.logoName}>Beacon Hills</div>
             <div className={styles.logoSub}>Banking</div>
           </div>
         </Link>

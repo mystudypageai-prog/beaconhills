@@ -234,7 +234,7 @@ export default function Hero() {
                 <span />
                 <span />
               </div>
-              <div className={styles.mockupTitle}>North Bridge — Dashboard</div>
+              <div className={styles.mockupTitle}>Beacon Hills — Dashboard</div>
             </div>
 
             <div className={styles.balanceCard}>

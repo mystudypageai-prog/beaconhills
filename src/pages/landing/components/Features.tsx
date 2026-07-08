@@ -105,7 +105,7 @@ function CardsVisual() {
     <div className={styles.visual}>
       <div className={styles.miniCard}>
         <div className={styles.miniCardTop}>
-          <span className={styles.miniCardName}>North Bridge</span>
+          <span className={styles.miniCardName}>Beacon Hills</span>
           <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
             <circle cx="11" cy="10" r="9" fill="#EF4444" opacity=".85" />
             <circle cx="21" cy="10" r="9" fill="#F59E0B" opacity=".85" />

@@ -64,7 +64,7 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <span className={styles.logoName}>North Bridge Banking</span>
+              <span className={styles.logoName}>Beacon Hills Banking</span>
             </Link>
             <p className={styles.tagline}>
               Banking built for how money moves today.
@@ -99,7 +99,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.copy}>
-            © 2025 North Bridge Bank N.A. Member FDIC. All rights reserved.
+            © 2025 Beacon Hills Bank N.A. Member FDIC. All rights reserved.
           </p>
           <div className={styles.social}>
             {["Twitter", "LinkedIn"].map((s) => (

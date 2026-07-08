@@ -64,7 +64,7 @@ export default function AcademyPage() {
     <div className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <div className={styles.heroBadge}>🎓 North Bridge Academy</div>
+          <div className={styles.heroBadge}>🎓 Beacon Hills Academy</div>
           <h1 className={styles.heroTitle}>Master Crypto Investing</h1>
           <p className={styles.heroSubtitle}>
             Join thousands of students learning blockchain, trading, and DeFi in
