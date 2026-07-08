@@ -4,7 +4,7 @@ import styles from "./FinalCTA.module.css";
 
 const BG_IMAGES = ["/hero.jpg", "/hero2.jpg", "/hero3.jpg"];
 
-// Floating ornaments — money/finance SVGs
+// Floating ornaments - money/finance SVGs
 const ORNAMENTS = [
   {
     id: "coin1",
@@ -161,7 +161,7 @@ export default function FinalCTA() {
 
   return (
     <section className={styles.section}>
-      {/* Sliding backgrounds — same pattern as Hero */}
+      {/* Sliding backgrounds - same pattern as Hero */}
       <div className={styles.bgWrap} aria-hidden="true">
         {BG_IMAGES.map((src, i) => (
           <div

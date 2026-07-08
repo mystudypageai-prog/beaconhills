@@ -225,7 +225,7 @@ export default function AdminSupport() {
                       </span>
                     </div>
                     <div style={{ fontSize: "12px", color: "#9ca3af" }}>
-                      {ticket.user?.name || "—"} · {ticket.user?.email}
+                      {ticket.user?.name || "-"} · {ticket.user?.email}
                     </div>
                     <div
                       style={{

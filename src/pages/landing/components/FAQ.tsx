@@ -8,7 +8,7 @@ const FAQS = [
   },
   {
     q: "Are there any monthly fees?",
-    a: "No. Our core checking and savings accounts are completely free — no monthly maintenance fees, no minimum balance requirements, no hidden charges.",
+    a: "No. Our core checking and savings accounts are completely free - no monthly maintenance fees, no minimum balance requirements, no hidden charges.",
   },
   {
     q: "How quickly can I deposit and withdraw?",
@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: "Can I use Beacon Hills internationally?",
-    a: "Yes. Our cards work in 190+ countries. International payments are processed in real time with mid-market exchange rates — no markup, no SWIFT delays.",
+    a: "Yes. Our cards work in 190+ countries. International payments are processed in real time with mid-market exchange rates - no markup, no SWIFT delays.",
   },
 ];
 

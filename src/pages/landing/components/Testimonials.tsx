@@ -11,7 +11,7 @@ const QUOTES = [
   },
   {
     quote:
-      "I've used Wise, Revolut, and a handful of others. Beacon Hills is the only one where the savings rate is genuinely high and the international transfers just work — no delays, no excuses.",
+      "I've used Wise, Revolut, and a handful of others. Beacon Hills is the only one where the savings rate is genuinely high and the international transfers just work - no delays, no excuses.",
     name: "David Chen",
     role: "Software Engineer, independent",
     init: "DC",

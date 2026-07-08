@@ -4,7 +4,7 @@ import styles from "./Hero.module.css";
 
 const BG_IMAGES = ["/hero.jpg", "/hero2.jpg", "/hero3.jpg"];
 
-// Floating ornaments in the hero — white tinted, very subtle
+// Floating ornaments in the hero - white tinted, very subtle
 const ORNAMENTS = [
   {
     id: "h1",
@@ -221,7 +221,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — product UI mockup */}
+        {/* Right - product UI mockup */}
         <div
           className={styles.mockupWrap}
           data-aos="fade-left"
@@ -234,7 +234,7 @@ export default function Hero() {
                 <span />
                 <span />
               </div>
-              <div className={styles.mockupTitle}>Beacon Hills — Dashboard</div>
+              <div className={styles.mockupTitle}>Beacon Hills - Dashboard</div>
             </div>
 
             <div className={styles.balanceCard}>

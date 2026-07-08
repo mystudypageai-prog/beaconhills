@@ -14,7 +14,10 @@
   align-items: start;
 }
 
-.left { position: sticky; top: 100px; }
+.left {
+  position: sticky;
+  top: 100px;
+}
 
 .h2 {
   font-size: clamp(22px, 2.8vw, 30px);
@@ -25,14 +28,27 @@
   margin-bottom: var(--sp-3);
 }
 
-.body { font-size: 14px; color: var(--fg-2); line-height: 1.62; }
+.body {
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.62;
+}
 
-.link { color: var(--brand); font-weight: 500; }
-.link:hover { opacity: 0.75; }
+.link {
+  color: var(--brand);
+  font-weight: 500;
+}
+.link:hover {
+  opacity: 0.75;
+}
 
-.right { border-top: 1px solid var(--border); }
+.right {
+  border-top: 1px solid var(--border);
+}
 
-.item  { border-bottom: 1px solid var(--border); }
+.item {
+  border-bottom: 1px solid var(--border);
+}
 
 .q {
   width: 100%;
@@ -49,23 +65,34 @@
   background: none;
   transition: color 0.18s;
 }
-.q:hover { color: var(--fg); }
-.itemOpen .q { color: var(--fg); }
+.q:hover {
+  color: var(--fg);
+}
+.itemOpen .q {
+  color: var(--fg);
+}
 
 .chevron {
   flex-shrink: 0;
   color: var(--fg-3);
-  transition: transform 0.25s ease, color 0.18s;
+  transition:
+    transform 0.25s ease,
+    color 0.18s;
 }
-.chevronOpen { transform: rotate(180deg); color: var(--brand); }
+.chevronOpen {
+  transform: rotate(180deg);
+  color: var(--brand);
+}
 
-/* CSS grid accordion — smooth, no JS height */
+/* CSS grid accordion - smooth, no JS height */
 .answer {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.3s ease;
 }
-.answerOpen { grid-template-rows: 1fr; }
+.answerOpen {
+  grid-template-rows: 1fr;
+}
 
 /* The direct child MUST have overflow:hidden for grid-template-rows trick */
 .answerInner {
@@ -81,7 +108,14 @@
 }
 
 @media (max-width: 768px) {
-  .container { grid-template-columns: 1fr; gap: var(--sp-6); }
-  .left      { position: static; }
-  .section   { padding: var(--sp-8) 0; }
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+  .left {
+    position: static;
+  }
+  .section {
+    padding: var(--sp-8) 0;
+  }
 }

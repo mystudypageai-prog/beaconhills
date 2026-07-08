@@ -4,7 +4,7 @@ const STEPS = [
   {
     n: "1",
     title: "Create an account",
-    body: "Sign up in 3 minutes. Verify your identity with a government ID — no branch visit required.",
+    body: "Sign up in 3 minutes. Verify your identity with a government ID - no branch visit required.",
   },
   {
     n: "2",
@@ -18,7 +18,7 @@ const STEPS = [
   },
 ];
 
-// Small floating SVGs — subtle, only 3 so it doesn't compete with content
+// Small floating SVGs - subtle, only 3 so it doesn't compete with content
 const ORNAMENTS = [
   {
     id: "o1",

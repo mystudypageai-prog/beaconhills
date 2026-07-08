@@ -13,7 +13,7 @@
   border-radius: 14px;
   padding: 20px;
   border: 1px solid var(--border);
-  
+
   overflow: hidden;
 }
 
@@ -256,7 +256,7 @@
   transition:
     background 0.15s,
     transform 0.15s;
-  box-shadow: 0 4px 16px rgba(34,197,94,0.25);
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.25);
 }
 .submitBtn:hover {
   background: #16a34a;
@@ -325,7 +325,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-/* JSX uses .faqQ — maps to faqQuestion styles */
+/* JSX uses .faqQ - maps to faqQuestion styles */
 .faqQ {
   display: flex;
   align-items: center;
@@ -371,7 +371,7 @@
   transform: rotate(180deg);
 }
 
-/* JSX uses .faqA — maps to faqAnswer styles */
+/* JSX uses .faqA - maps to faqAnswer styles */
 .faqA {
   font-size: 13px;
   color: var(--fg-3);

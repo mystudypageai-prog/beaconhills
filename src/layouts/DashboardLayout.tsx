@@ -123,7 +123,7 @@ export default function DashboardLayout() {
             </button>
           </nav>
 
-          {/* Sidebar promo card — updated to fintech context */}
+          {/* Sidebar promo card - updated to fintech context */}
           <div className={styles.inviteCard}>
             <div className={styles.inviteRocket}>💼</div>
             <div className={styles.inviteContent}>

@@ -9,7 +9,7 @@ interface AuthLayoutProps {
 export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className={styles.root}>
-      {/* Left panel — branding */}
+      {/* Left panel - branding */}
       <div className={styles.panel}>
         <div className={styles.panelInner}>
           <Link to="/" className={styles.logo}>
@@ -78,7 +78,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
         </div>
       </div>
 
-      {/* Right panel — form */}
+      {/* Right panel - form */}
       <div className={styles.form}>
         <div className={styles.formInner}>{children}</div>
       </div>

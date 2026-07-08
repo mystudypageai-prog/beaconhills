@@ -6,7 +6,7 @@ const TABS = [
     id: "accounts",
     label: "Accounts",
     heading: "Everything your money needs in one place.",
-    body: "High-yield savings at 5.2% APY. Zero-fee checking. Automatic round-ups. One dashboard for all your balances — live, always in sync.",
+    body: "High-yield savings at 5.2% APY. Zero-fee checking. Automatic round-ups. One dashboard for all your balances - live, always in sync.",
     items: [
       "High-yield savings · 5.2% APY",
       "FDIC-insured checking account",

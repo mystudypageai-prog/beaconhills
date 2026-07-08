@@ -398,7 +398,7 @@ export default function WithdrawPage() {
         )}
 
         {/* ════════════════════════════════════════
-            BANK TRANSFER — Step: Details
+            BANK TRANSFER - Step: Details
         ════════════════════════════════════════ */}
         {step === "details" && method === "bank_transfer" && (
           <div className={styles.card}>
@@ -596,7 +596,7 @@ export default function WithdrawPage() {
         )}
 
         {/* ════════════════════════════════════════
-            BANK TRANSFER — Step: Confirm
+            BANK TRANSFER - Step: Confirm
         ════════════════════════════════════════ */}
         {step === "confirm" && method === "bank_transfer" && (
           <div className={styles.card}>
@@ -708,7 +708,7 @@ export default function WithdrawPage() {
         )}
 
         {/* ════════════════════════════════════════
-            CRYPTO — Step: Select Coin
+            CRYPTO - Step: Select Coin
         ════════════════════════════════════════ */}
         {step === "select" && method === "crypto" && (
           <div className={styles.card}>
@@ -807,7 +807,7 @@ export default function WithdrawPage() {
         )}
 
         {/* ════════════════════════════════════════
-            CRYPTO — Step: Details
+            CRYPTO - Step: Details
         ════════════════════════════════════════ */}
         {step === "details" && method === "crypto" && selectedNetwork && (
           <div className={styles.card}>
@@ -938,7 +938,7 @@ export default function WithdrawPage() {
         )}
 
         {/* ════════════════════════════════════════
-            CRYPTO — Step: Confirm
+            CRYPTO - Step: Confirm
         ════════════════════════════════════════ */}
         {step === "confirm" && method === "crypto" && selectedNetwork && (
           <div className={styles.card}>
@@ -1040,7 +1040,7 @@ export default function WithdrawPage() {
               <span className={styles.checkLabel}>
                 I confirm I want to withdraw{" "}
                 <strong>{formatUSD(usdNum)}</strong> to{" "}
-                <strong>{recipientAddress.slice(0, 10)}…</strong> — this is
+                <strong>{recipientAddress.slice(0, 10)}…</strong> - this is
                 irreversible.
               </span>
             </div>

@@ -114,7 +114,7 @@ export default function Security() {
           <p className={styles.body}>
             We don't treat security as a feature. It's the foundation. North
             Bridge runs on the same infrastructure used by the world's largest
-            financial institutions — audited quarterly, monitored continuously.
+            financial institutions - audited quarterly, monitored continuously.
           </p>
           <div className={styles.certRow}>
             {["SOC 2 Type II", "PCI DSS", "ISO 27001", "FINRA"].map((c) => (

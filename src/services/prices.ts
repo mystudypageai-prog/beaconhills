@@ -2,36 +2,38 @@
 // Fetches from CoinGecko with graceful fallback
 
 const FALLBACK_PRICES: Record<string, number> = {
-  BTC: 95420.00,
-  ETH: 3180.50,
+  BTC: 95420.0,
+  ETH: 3180.5,
   BNB: 610.25,
-  USDT: 1.00,
-  USDC: 1.00,
+  USDT: 1.0,
+  USDC: 1.0,
   SOL: 148.32,
   XRP: 2.15,
   TRX: 0.24,
-  LTC: 88.40,
+  LTC: 88.4,
   ADA: 0.44,
 };
 
 const COINGECKO_IDS: Record<string, string> = {
-  BTC: 'bitcoin',
-  ETH: 'ethereum',
-  BNB: 'binancecoin',
-  USDT: 'tether',
-  USDC: 'usd-coin',
-  SOL: 'solana',
-  XRP: 'ripple',
-  TRX: 'tron',
-  LTC: 'litecoin',
-  ADA: 'cardano',
+  BTC: "bitcoin",
+  ETH: "ethereum",
+  BNB: "binancecoin",
+  USDT: "tether",
+  USDC: "usd-coin",
+  SOL: "solana",
+  XRP: "ripple",
+  TRX: "tron",
+  LTC: "litecoin",
+  ADA: "cardano",
 };
 
 let priceCache: Record<string, number> = {};
 let lastFetch = 0;
 const CACHE_TTL = 60_000; // 1 minute
 
-export async function fetchAllPrices(symbols: string[]): Promise<Record<string, number>> {
+export async function fetchAllPrices(
+  symbols: string[],
+): Promise<Record<string, number>> {
   const now = Date.now();
   if (now - lastFetch < CACHE_TTL && Object.keys(priceCache).length > 0) {
     return priceCache;
@@ -40,16 +42,16 @@ export async function fetchAllPrices(symbols: string[]): Promise<Record<string, 
   const ids = symbols
     .map((s) => COINGECKO_IDS[s.toUpperCase()])
     .filter(Boolean)
-    .join(',');
+    .join(",");
 
   if (!ids) return { ...FALLBACK_PRICES };
 
   try {
     const res = await fetch(
       `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`,
-      { signal: AbortSignal.timeout(5000) }
+      { signal: AbortSignal.timeout(5000) },
     );
-    if (!res.ok) throw new Error('CoinGecko error');
+    if (!res.ok) throw new Error("CoinGecko error");
     const data = await res.json();
 
     const result: Record<string, number> = {};
@@ -72,7 +74,9 @@ export async function fetchAllPrices(symbols: string[]): Promise<Record<string, 
 
 export async function fetchPrice(symbol: string): Promise<number> {
   const prices = await fetchAllPrices([symbol.toUpperCase()]);
-  return prices[symbol.toUpperCase()] ?? FALLBACK_PRICES[symbol.toUpperCase()] ?? 1;
+  return (
+    prices[symbol.toUpperCase()] ?? FALLBACK_PRICES[symbol.toUpperCase()] ?? 1
+  );
 }
 
 export function getFallbackPrice(symbol: string): number {
@@ -84,19 +88,22 @@ export function usdToCrypto(usdAmount: number, pricePerCoin: number): number {
   return usdAmount / pricePerCoin;
 }
 
-export function cryptoToUsd(cryptoAmount: number, pricePerCoin: number): number {
+export function cryptoToUsd(
+  cryptoAmount: number,
+  pricePerCoin: number,
+): number {
   return cryptoAmount * pricePerCoin;
 }
 
 export function formatCrypto(amount: number, symbol: string): string {
-  const decimals = ['BTC', 'ETH', 'LTC'].includes(symbol.toUpperCase()) ? 6 : 4;
+  const decimals = ["BTC", "ETH", "LTC"].includes(symbol.toUpperCase()) ? 6 : 4;
   return `${amount.toFixed(decimals)} ${symbol.toUpperCase()}`;
 }
 
 export function formatUSD(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount);
@@ -115,21 +122,21 @@ export interface MarketCoin {
 
 export async function fetchMarketData(): Promise<MarketCoin[]> {
   const COINS = [
-    { symbol: 'BTC', name: 'Bitcoin',  color: '#f7931a', id: 'bitcoin' },
-    { symbol: 'ETH', name: 'Ethereum', color: '#627eea', id: 'ethereum' },
-    { symbol: 'USDT',name: 'Tether',   color: '#26a17b', id: 'tether' },
-    { symbol: 'BNB', name: 'BNB',      color: '#f3ba2f', id: 'binancecoin' },
-    { symbol: 'SOL', name: 'Solana',   color: '#9945ff', id: 'solana' },
-    { symbol: 'XRP', name: 'XRP',      color: '#346aa9', id: 'ripple' },
+    { symbol: "BTC", name: "Bitcoin", color: "#f7931a", id: "bitcoin" },
+    { symbol: "ETH", name: "Ethereum", color: "#627eea", id: "ethereum" },
+    { symbol: "USDT", name: "Tether", color: "#26a17b", id: "tether" },
+    { symbol: "BNB", name: "BNB", color: "#f3ba2f", id: "binancecoin" },
+    { symbol: "SOL", name: "Solana", color: "#9945ff", id: "solana" },
+    { symbol: "XRP", name: "XRP", color: "#346aa9", id: "ripple" },
   ];
 
   try {
-    const ids = COINS.map((c) => c.id).join(',');
+    const ids = COINS.map((c) => c.id).join(",");
     const res = await fetch(
       `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true&include_market_cap=true`,
-      { signal: AbortSignal.timeout(6000) }
+      { signal: AbortSignal.timeout(6000) },
     );
-    if (!res.ok) throw new Error('fail');
+    if (!res.ok) throw new Error("fail");
     const data = await res.json();
 
     return COINS.map((c) => ({
@@ -148,7 +155,7 @@ export async function fetchMarketData(): Promise<MarketCoin[]> {
       color: c.color,
       price: FALLBACK_PRICES[c.symbol] ?? 1,
       change24h: (Math.random() - 0.5) * 6,
-      marketCap: '—',
+      marketCap: "-",
       sparkPoints: generateSparkPoints((Math.random() - 0.5) * 6),
     }));
   }
@@ -156,8 +163,8 @@ export async function fetchMarketData(): Promise<MarketCoin[]> {
 
 function formatMarketCap(cap: number): string {
   if (cap >= 1e12) return `$${(cap / 1e12).toFixed(2)}T`;
-  if (cap >= 1e9)  return `$${(cap / 1e9).toFixed(2)}B`;
-  if (cap >= 1e6)  return `$${(cap / 1e6).toFixed(2)}M`;
+  if (cap >= 1e9) return `$${(cap / 1e9).toFixed(2)}B`;
+  if (cap >= 1e6) return `$${(cap / 1e6).toFixed(2)}M`;
   return `$${cap.toFixed(0)}`;
 }
 
