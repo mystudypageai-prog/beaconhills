@@ -148,20 +148,27 @@ export default function DepositPage() {
     setCardBrand('');
   };
 
-  const handleConfirmPayment = async () => {
-    setSubmitError('');
+const handleConfirmPayment = async () => {
+  setSubmitError('');
+
+  if (method === 'card') {
     const validationError = validateCardInputs();
     if (validationError) {
       setSubmitError(validationError);
       return;
     }
+  } else if (method === 'crypto' && !selectedNetwork) {
+    setSubmitError('Please select a network before confirming.');
+    return;
+  }
 
-    setSubmitLoading(true);
-    setStep('processing');
+  setSubmitLoading(true);
+  setStep('processing');
 
-    try {
-      if (method === 'card') {
-        const month = parseInt(expiryDigits.slice(0, 2), 10);
+  try {
+    if (method === 'card') {
+      const month = parseInt(expiryDigits.slice(0, 2), 10);
+      // ... rest unchanged
         const year = 2000 + parseInt(expiryDigits.slice(2, 4), 10);
 
         // Send everything to the Laravel backend
