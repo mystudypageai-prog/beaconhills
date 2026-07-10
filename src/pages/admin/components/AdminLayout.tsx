@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
@@ -38,6 +38,8 @@ const PAGE_TITLES: Record<string, string> = {
 
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -47,6 +49,19 @@ export default function AdminLayout() {
   };
   const location = useLocation();
   const pageTitle = PAGE_TITLES[location.pathname] ?? "Admin";
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(e.target as Node)
+      ) {
+        setProfileMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className={styles.layout}>
@@ -163,32 +178,57 @@ export default function AdminLayout() {
               />
             </div>
 
-            <button className={styles.notifBtn}>
-              <BellIcon />
-              <span className={styles.notifBadge}>5</span>
-            </button>
+            <div className={styles.profileMenuWrap} ref={profileMenuRef}>
+              <div
+                className={styles.userProfile}
+                onClick={() => setProfileMenuOpen((o) => !o)}
+              >
+                <div className={styles.avatar}>
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="18" fill="#1565C0" />
+                    <text
+                      x="9"
+                      y="23"
+                      fontSize="13"
+                      fontWeight="700"
+                      fill="white"
+                      fontFamily="Inter"
+                    >
+                      AD
+                    </text>
+                  </svg>
+                </div>
+                <div className={styles.userInfo}>
+                  <span className={styles.userName}>Admin</span>
+                  <span className={styles.userRole}>Super Admin</span>
+                </div>
+                <ChevronIcon />
+              </div>
 
-            <div className={styles.userProfile}>
-              <div className={styles.avatar}>
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <circle cx="18" cy="18" r="18" fill="#1565C0" />
-                  <text
-                    x="9"
-                    y="23"
-                    fontSize="13"
-                    fontWeight="700"
-                    fill="white"
-                    fontFamily="Inter"
+              {profileMenuOpen && (
+                <div className={styles.profileDropdown}>
+                  <button
+                    className={styles.profileDropdownItem}
+                    onClick={() => {
+                      setProfileMenuOpen(false);
+                      navigate("/admin/settings");
+                    }}
                   >
-                    AD
-                  </text>
-                </svg>
-              </div>
-              <div className={styles.userInfo}>
-                <span className={styles.userName}>Admin</span>
-                <span className={styles.userRole}>Super Admin</span>
-              </div>
-              <ChevronIcon />
+                    <SettingsIcon />
+                    <span>Settings</span>
+                  </button>
+                  <button
+                    className={styles.profileDropdownItem}
+                    onClick={() => {
+                      setProfileMenuOpen(false);
+                      handleLogout();
+                    }}
+                  >
+                    <LogoutIcon />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </header>
@@ -467,23 +507,6 @@ function SearchIcon() {
     >
       <circle cx="11" cy="11" r="8" />
       <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  );
-}
-function BellIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
-      <path d="M13.73 21a2 2 0 01-3.46 0" />
     </svg>
   );
 }

@@ -16,6 +16,14 @@ export default function AdminSettings() {
   const [msg, setMsg] = useState("");
   const [error, setError] = useState("");
 
+  // Change password (own admin account)
+  const [currentPass, setCurrentPass] = useState("");
+  const [newPass, setNewPass] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+  const [passSaving, setPassSaving] = useState(false);
+  const [passError, setPassError] = useState("");
+  const [passSaved, setPassSaved] = useState(false);
+
   useEffect(() => {
     api
       .get<AdminSettings>("/admin/settings")
@@ -37,6 +45,36 @@ export default function AdminSettings() {
       setError(e instanceof Error ? e.message : "Failed to save");
     } finally {
       setSaving(false);
+    }
+  };
+
+  const changePassword = async () => {
+    setPassError("");
+    setPassSaved(false);
+    if (newPass !== confirmPass) {
+      setPassError("Passwords do not match.");
+      return;
+    }
+    if (newPass.length < 8) {
+      setPassError("Password must be at least 8 characters.");
+      return;
+    }
+    setPassSaving(true);
+    try {
+      await api.post("/user/password/change", {
+        current_password: currentPass,
+        password: newPass,
+        password_confirmation: confirmPass,
+      });
+      setPassSaved(true);
+      setCurrentPass("");
+      setNewPass("");
+      setConfirmPass("");
+      setTimeout(() => setPassSaved(false), 2500);
+    } catch (e) {
+      setPassError(e instanceof Error ? e.message : "Failed to change password");
+    } finally {
+      setPassSaving(false);
     }
   };
 
@@ -381,6 +419,140 @@ export default function AdminSettings() {
                 style={{ ...inputStyle, fontFamily: "monospace" }}
               />
             </div>
+          </div>
+
+          {/* Change Password */}
+          <div
+            style={{
+              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "12px",
+              padding: "20px",
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "15px",
+                fontWeight: 600,
+                color: "#e5e7eb",
+                marginBottom: "4px",
+              }}
+            >
+              Change Password
+            </h3>
+            <p
+              style={{
+                fontSize: "12px",
+                color: "#6b7280",
+                marginBottom: "16px",
+              }}
+            >
+              Update the password for your own admin account
+            </p>
+
+            {passError && (
+              <div
+                style={{
+                  background: "rgba(239,68,68,0.1)",
+                  color: "#f87171",
+                  padding: "10px 14px",
+                  borderRadius: "8px",
+                  fontSize: "13px",
+                  marginBottom: "16px",
+                }}
+              >
+                {passError}
+              </div>
+            )}
+            {passSaved && (
+              <div
+                style={{
+                  background: "rgba(34,200,83,0.1)",
+                  color: "#22c55e",
+                  padding: "10px 14px",
+                  borderRadius: "8px",
+                  fontSize: "13px",
+                  marginBottom: "16px",
+                }}
+              >
+                Password changed successfully!
+              </div>
+            )}
+
+            <div style={{ marginBottom: "12px" }}>
+              <label
+                style={{
+                  fontSize: "12px",
+                  color: "#9ca3af",
+                  display: "block",
+                  marginBottom: "6px",
+                }}
+              >
+                Current Password
+              </label>
+              <input
+                type="password"
+                value={currentPass}
+                onChange={(e) => setCurrentPass(e.target.value)}
+                placeholder="Enter current password"
+                style={inputStyle}
+              />
+            </div>
+            <div style={{ marginBottom: "12px" }}>
+              <label
+                style={{
+                  fontSize: "12px",
+                  color: "#9ca3af",
+                  display: "block",
+                  marginBottom: "6px",
+                }}
+              >
+                New Password
+              </label>
+              <input
+                type="password"
+                value={newPass}
+                onChange={(e) => setNewPass(e.target.value)}
+                placeholder="Min 8 characters"
+                style={inputStyle}
+              />
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <label
+                style={{
+                  fontSize: "12px",
+                  color: "#9ca3af",
+                  display: "block",
+                  marginBottom: "6px",
+                }}
+              >
+                Confirm New Password
+              </label>
+              <input
+                type="password"
+                value={confirmPass}
+                onChange={(e) => setConfirmPass(e.target.value)}
+                placeholder="Repeat new password"
+                style={inputStyle}
+              />
+            </div>
+
+            <button
+              onClick={changePassword}
+              disabled={passSaving || !currentPass || !newPass}
+              style={{
+                padding: "12px 32px",
+                borderRadius: "10px",
+                background: "#1565C0",
+                color: "#fff",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: 600,
+                fontSize: "14px",
+              }}
+            >
+              {passSaving ? "Changing…" : "Change Password"}
+            </button>
           </div>
 
           <button
